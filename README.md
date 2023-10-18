@@ -15,7 +15,7 @@ More Info and Examples
 Installation
 Designed to run on Ubuntu 20.04 LTS, the simple_shell can be installed as follows:
 
-Clone the current repository with the command: git clone "https://github.com/stephenmakenziwaweru/simple_shell.git"
+Clone the current repository with the command: git clone https://github.com/Ekenesamuel8/simple_shell.git
 cd in to the cloned directory: cd simple_shell
 Create an executable using: gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
 Run the executable either in interative mode ./hsh or non-interactive mode echo "pwd" | ./hsh
