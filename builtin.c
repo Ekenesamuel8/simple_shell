@@ -1,8 +1,8 @@
 #include "simpleshell.h"
 /**
-*sxit - cheack for ue 
-*eke: kdskk
-*return: 1 for success and 0 if NULL 
+*sxit - cheack for ue
+*@eke: kdskk
+*Return: 1 for success and 0 if NULL
 */
 int sxit(char **eke)
 {
@@ -49,5 +49,5 @@ int sxit(char **eke)
 		}
 		return (1);
 	}
-	return 0;
+	return (0);
 }

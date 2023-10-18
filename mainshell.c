@@ -2,10 +2,10 @@
 /**
 * main - creates new custom shell terminal
 * @ac: count the number of argument
-* @env: the environment variable
+* @environ: the environment variable
+* @argv: unused
 * Return: 0 for success
 */
-
 int main(int ac, char **argv, char **environ)
 {
 	char *buffload = NULL, *eke[1024], *delim = " \n", *pat;
@@ -37,14 +37,13 @@ int main(int ac, char **argv, char **environ)
 		}
 		if (eke[0] == NULL)
 			continue;
-		if(sxit(eke) == 1)
+		if (sxit(eke) == 1)
 			continue;
-		
+
 		pat = lookforpath(eke[0]);
 		if (pat == NULL)
 		{
-			/*sxit(eke);*/
-			letprint("not found again\n");
+			perror("error");
 			continue;
 		}
 		dupprogram = fork();
