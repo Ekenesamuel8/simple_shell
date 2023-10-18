@@ -43,7 +43,7 @@ int main(int ac, char **argv, char **environ)
 		pat = lookforpath(eke[0]);
 		if (pat == NULL)
 		{
-			perror("error");
+			fprintf(stderr, "./hsh: 1: %s: not found\n", eke[0]);
 			continue;
 		}
 		dupprogram = fork();
@@ -52,12 +52,14 @@ int main(int ac, char **argv, char **environ)
 			if (execve(pat, eke, environ) == -1)
 			{
 				letprint("command not found\n");
-				exit(0);
+				free(buffload);
+				exit(127);
 			}
 		}
 		else if (dupprogram < 0)
 		{
 			letprint("error occur\n");
+			free(buffload);
 			exit(0);
 		}
 		else

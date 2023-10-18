@@ -23,7 +23,7 @@ int sxit(char **eke)
 	}
 	else if (strcmp(eke[0], "cd") == 0)
 	{
-		if (eke[1] == NULL)
+		if(eke[1] == NULL)
 		{
 			chdir(getenv("HOME"));
 			getcwd(buff, 1024);
@@ -41,7 +41,8 @@ int sxit(char **eke)
 		}
 		else
 		{
-			chdir(eke[1]);
+			if(chdir(eke[1]) != 0)
+				fprintf(stderr, "./hsh: 1: cd: can't cd to %s\n", eke[1]);
 			getcwd(buff, 1024);
 			update = getenv("PWD");
 			setenv("OLDPWD", update, 1);
