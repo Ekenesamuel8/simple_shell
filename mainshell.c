@@ -21,6 +21,7 @@ int main(int ac, char **argv, char **environ)
 	if (isatty(0))
 	{
 		letprint("smile$ ");
+		fflush(stdout);
 	}
 		get = getline(&buffload, &buffnum, stdin);
 
@@ -39,7 +40,6 @@ int main(int ac, char **argv, char **environ)
 			continue;
 		if (sxit(eke) == 1)
 			continue;
-
 		pat = lookforpath(eke[0]);
 		if (pat == NULL)
 		{
@@ -53,19 +53,19 @@ int main(int ac, char **argv, char **environ)
 			{
 				letprint("command not found\n");
 				free(buffload);
-				exit(127);
+				exit(1);
 			}
 		}
 		else if (dupprogram < 0)
 		{
 			letprint("error occur\n");
 			free(buffload);
-			exit(0);
+			exit(1);
 		}
 		else
 			wait(&status);
 	}
-	free(eke);
 	free(buffload);
+	free(eke);
 	return (0);
 }

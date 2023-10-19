@@ -13,17 +13,21 @@ int sxit(char **eke)
 	if (strcmp(eke[0], "exit") == 0)
 	{
 		if (eke[1] == NULL)
+		{
+			free(eke[0]);
 			exit(exitstat);
+		}
 		else
 		{
 			statpassed = eke[1];
 			exitstat = atoi(statpassed);
+			free(eke[0]);
 			exit(exitstat);
 		}
 	}
 	else if (strcmp(eke[0], "cd") == 0)
 	{
-		if(eke[1] == NULL)
+		if (eke[1] == NULL)
 		{
 			chdir(getenv("HOME"));
 			getcwd(buff, 1024);
@@ -41,7 +45,7 @@ int sxit(char **eke)
 		}
 		else
 		{
-			if(chdir(eke[1]) != 0)
+			if (chdir(eke[1]) != 0)
 				fprintf(stderr, "./hsh: 1: cd: can't cd to %s\n", eke[1]);
 			getcwd(buff, 1024);
 			update = getenv("PWD");
