@@ -54,7 +54,7 @@ int main(int ac, char **argv, char **environ)
 			{
 				letprint("command not found\n");
 				free(buffload);
-				exit(1);
+				exit(127);
 			}
 		}
 		else if (dupprogram < 0)
