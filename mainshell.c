@@ -6,6 +6,7 @@
 * @argv: unused
 * Return: 0 for success
 */
+int main(int ac, char **argv, char **environ);
 int main(int ac, char **argv, char **environ)
 {
 	char *buffload = NULL, *eke[1024], *delim = " \n", *pat;
@@ -63,7 +64,10 @@ int main(int ac, char **argv, char **environ)
 			exit(1);
 		}
 		else
+		{
 			wait(&status);
+		}
+
 	}
 	free(buffload);
 	free(eke);

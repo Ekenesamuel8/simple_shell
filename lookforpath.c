@@ -26,10 +26,12 @@ char *accesspath(char *path, char *arg)
 			free(acpath);
 			return (fpath);
 		}
-		aptoken = strtok(NULL, dilm);
 		free(fpath);
+		aptoken = strtok(NULL, dilm);
+
 	}
 	free(acpath);
+	free(fpath);
 	return (NULL);
 }
 /**

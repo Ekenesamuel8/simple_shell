@@ -4,6 +4,7 @@
 *@eke: kdskk
 *Return: 1 for success and 0 if NULL
 */
+int sxit(char **eke);
 int sxit(char **eke)
 {
 	char buff[1024];
